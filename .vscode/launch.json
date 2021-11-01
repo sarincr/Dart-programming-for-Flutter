@@ -1,0 +1,26 @@
+{
+	"name": "Dart",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"extensions": [
+		"dart-code.dart-code",
+		"dart-code.flutter",
+		"ms-python.python"
+	],
+	"remoteUser": "vscode",
+	"mounts": [
+		"source=projectname-bashhistory,target=/commandhistory,type=volume"
+	],
+	"runArgs": [
+		"--device=/dev/kvm",
+		"-e",
+		"DISPLAY=${localEnv:DISPLAY}",
+		"-v",
+		"/tmp/.X11-unix:/tmp/.X11-unix"
+	],
+	"postCreateCommand": "flutter pub get"
+}
